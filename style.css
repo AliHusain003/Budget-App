@@ -1,213 +1,207 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
 
-html,body{
+html, body {
     height: 100%;
     width: 100%;
 }
 
-body{
-    display: flex;
-}
-
-.left{
-    height: 100%;
-    width: 43%;
-    /* background-color: rgb(35, 238, 238); */
-    padding: 3vw 5vw;
-}
-
-.left h1{
-    margin-bottom: 2vw;
-}
-
-.left .form-item{
-    height: 20vh;
-    width: 30vw;
-    background-color: rgba(0, 0, 0, 0.101);
-    padding: 1vw 2vw;
-    border: 2px solid #000;
-}
-
-.left .form-item .form{
+.container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: start;
-    justify-content: start;
+    min-height: 100vh;
 }
 
-.form-item .form input{
-    height: 25px;
-    width: 24vw;
-    outline: none;
-    border: none;
-    border: 1px solid #000;
-    padding-inline: 10px;
-    font-size: 1rem;
-    margin-top: 5px;
+.left, .right {
+    padding: 20px;
+    width: 100%;
 }
 
-.form-item .form #calc-btn{
-    padding: 0.4vw 2vw;
+#budget-inp{
+    margin-block: 0.9vw;
+    border-radius: 10px;
 }
 
-.left .form-item2{
-    height: 32vh;
-    width: 30vw;
+.form-2 input{
+    margin-block: 0.9vw;
+}
+
+.left h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.left .form-item, .left .form-item2 {
     background-color: rgba(0, 0, 0, 0.101);
-    padding: 1vw 2vw;
+    padding: 10px;
     border: 2px solid #000;
-    margin-top: 6vw;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
-.left .form-item2 .form{
+.left .form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: start;
-    justify-content: start;
+    gap: 15px;
 }
 
-.form-item2 .form input{
-    height: 25px;
+.form1{
+    padding: 0.3vw 0;
+}
+
+.form-item .form input, .form-item2 .form input {
+    height: 40px;
+    width: 100%;
     outline: none;
-    border: none;
     border: 1px solid #000;
-    padding-inline: 10px;
+    padding: 0 10px;
     font-size: 1rem;
-    margin-top: 5px;
-    width: 24vw;
+    border-radius: 10px;
 }
 
-.form-item2 .form #calc-btn2{
-    padding: 0.4vw 2vw;
+.form-item .form #calc-btn, .form-item2 .form #calc-btn2 {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: flex-end;
 }
 
 .right{
-    height: 100%;
-    width: 57%;
-    /* background-color: rgb(81, 0, 243); */
-    padding: 5vw 0vw;
+    margin-top: 5%;
 }
 
-.right .right-up{
-    height: 30vh;
-    width: 57vw;
-    /* background-color: cornsilk; */
+.right-up {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.right .right-up .card1{
-    height: 100%;
-    width: 33.34%;
-    /* background-color: blanchedalmond; */
-    padding: 2vw 0vw;
+.card {
+    padding: 15px;
     text-align: center;
-}
-
-.right .right-up .card1 .icon {
-    font-size: 5vw;
-}
-
-.right .right-up .card1 #total-budget {
-    font-size: 2.3vw;
-    color: green;
-}
-
-.right .right-up .card2{
-    height: 100%;
-    width: 33.34%;
-    /* background-color: aquamarine; */
-    padding: 2vw 0vw;
-    text-align: center;
-}
-
-.right .right-up .card2 .icon {
-    font-size: 5vw;
-}
-
-.right .right-up .card2 #total-expense {
-    font-size: 2.3vw;
-    color: red;
-}
-
-.right .right-up .card3{
-    height: 100%;
-    width: 33.34%;
-    /* background-color: rgb(227, 86, 25); */
-    padding: 2vw 0vw;
-    text-align: center;
-}
-
-.right .right-up .card3 .icon {
-    font-size: 4.9vw;
-}
-
-.right .right-up .card3 #total-balance {
-    font-size: 2.3vw;
-    color: green;
-}
-
-.right-down{
-    height: 8vh;
-    width: 38vw;
-    /* background-color: cornsilk; */
-}
-
-.right-down .right-down1{
-    display: flex;
-    width: 40vw;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.right-down .right-down2{
-    width: 50vw;
-    height: 100%;
-    margin-left: 5vw;
-    /* background-color: burlywood; */
-}
-
-/* .right-down .right-down2 .first-list{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: aqua;
-} */
-
-.right-down .right-down2 ul{
-    list-style: none;
-    /* margin-top: 20px; */
-    /* width: 30vw; */
-}
-
-.right-down .right-down2 ul li {
-    padding: 0 2vw;
-    height: 6vh;
-    /* margin-bottom: 10px; */
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card .icon {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+}
+
+#total-budget, #total-balance {
+    color: green;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#total-expense {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.expense-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    transition: all ease 0.3s;
-    /* background-color: azure; */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
 }
 
+.expense-header h4 {
+    flex: 1;
+    text-align: center;
+}
 
-.btn-group button{
+.expense-list ul {
+    list-style: none;
+}
+
+.expense-list ul li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.expense-list ul li span {
+    /* flex: 1; */
+    /* background-color: aqua; */
+
+    text-align: center;
+    
+}
+
+.btn-group button {
     margin-left: 5px;
     border: none;
-    background : transparent;
-    cursor : pointer;
-    font-size: 14px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
 
+/* Tablet View */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+    
+    .left {
+        width: 40%;
+    }
+    
+    .right {
+        width: 60%;
+    }
+    
+    .right-up {
+        flex-direction: row;
+    }
+    
+    .card {
+        flex: 1;
+    }
+}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+    .left {
+        padding: 30px;
+    }
+    
+    .right {
+        padding: 30px;
+    }
+    
+    .left h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card .icon {
+        font-size: 3rem;
+    }
+    
+    .card h2 {
+        font-size: 1.5rem;
+    }
+    
+    #total-budget, #total-expense, #total-balance {
+        font-size: 2rem;
+    }
 }

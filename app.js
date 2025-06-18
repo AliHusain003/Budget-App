@@ -1,67 +1,77 @@
 let totalBudget = document.getElementById("total-budget");
 let totalExpense = document.getElementById("total-expense");
 let totalBalance = document.getElementById("total-balance");
-let sign = "₹";
-var expenses=0;
+let expenses = 0;
+let currentBudget = 0;
 
-let showAmount = () => {
-    let budgetInp = parseInt(document.getElementById("budget-inp").value);  
+function showAmount() {
+    let budgetInp = parseInt(document.getElementById("budget-inp").value);
+    if (isNaN(budgetInp)) {
+        alert("Please enter a valid budget amount");
+        return;
+    }
+    currentBudget = budgetInp;
     totalBudget.textContent = budgetInp;
-    totalBalance.textContent = budgetInp;
+    totalBalance.textContent = budgetInp - expenses;
 }
 
-let ShowExpenseAmount = () => {   
+function ShowExpenseAmount() {
     let expInp = parseInt(document.getElementById("expense-amount").value);
     let expenseName = document.getElementById("expense-name").value;
+    
+    if (!expenseName || isNaN(expInp)) {
+        alert("Please enter valid expense details");
+        return;
+    }
+    
+    if (currentBudget === 0) {
+        alert("Please set your budget first");
+        return;
+    }
+    
     let list = document.getElementById("list");
-
     const li = document.createElement("li");
 
     const nameSpan = document.createElement("span");
     nameSpan.textContent = expenseName;
-    nameSpan.style.marginRight = "0.5vw";
-    nameSpan.style.width = "5vw";
     nameSpan.style.color = "red";
 
     const amtSpan = document.createElement("span");
     amtSpan.textContent = expInp;
-    amtSpan.style.width = "5vw";
     amtSpan.style.color = "red";
-
 
     const btnGroup = document.createElement("div");
     btnGroup.className = "btn-group";
 
-    const updateBtn = document.createElement("button");
-    updateBtn.textContent = "📝";
-    updateBtn.onclick = () => {
-        nameSpan.textContent = "";
-        amtSpan.textContent = "";
-    }
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "✏️";
+    editBtn.onclick = function() {
+        const newName = prompt("Edit expense name:", nameSpan.textContent);
+        if (newName !== null) nameSpan.textContent = newName;
+    };
 
     const delBtn = document.createElement("button");
     delBtn.textContent = "🗑️";
-    delBtn.onclick = () => li.remove();
+    delBtn.onclick = function() {
+        expenses -= parseInt(amtSpan.textContent);
+        totalExpense.textContent = expenses;
+        totalBalance.textContent = currentBudget - expenses;
+        li.remove();
+    };
+
+    btnGroup.appendChild(editBtn);
+    btnGroup.appendChild(delBtn);
 
     li.appendChild(nameSpan);
     li.appendChild(amtSpan);
-    btnGroup.appendChild(updateBtn);
-    btnGroup.appendChild(delBtn);
     li.appendChild(btnGroup);
-
     list.appendChild(li);
 
-    
-    expenses = expenses + expInp;
-    //alert(expenses);
-    let totalExpense = document.getElementById("total-expense");
+    expenses += expInp;
     totalExpense.textContent = expenses;
-    
-    let totalBalance = parseInt(document.getElementById("total-balance").innerHTML);
-    document.getElementById("total-balance").innerHTML = totalBalance - expenses;
-    
+    totalBalance.textContent = currentBudget - expenses;
 
-    
+    // Clear input fields
+    document.getElementById("expense-name").value = "";
+    document.getElementById("expense-amount").value = "";
 }
-
-
